@@ -1,0 +1,31 @@
+
+<app-navbar></app-navbar>
+
+<div class="row p-5" *ngIf="producto">
+    <div class="container">
+        <div class="row">
+            <div class="card-deck p-3 ">
+              <div class="card">
+                <img class="card-img-top" [src]="producto.img" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{producto.nombre}}</h5>
+                  <p class="card-text">{{producto.direccion}}</p>
+                  <p class="card-text">{{producto.pais}}</p>
+                  <p class="card-text">{{producto.ciudad}}</p>
+                  <hr>
+                  <p class="card-text">{{producto.usuario.nombre}}</p>
+                  <p class="card-text">{{producto.telefono}}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Estado<p class="text-warning"> {{producto.disponible}}</p></small>
+                </div>
+                <button>
+                  <a [routerLink]="['../imagen/', producto._id]">Añadir una imagen</a>
+                </button>
+              </div>
+            </div>
+        </div>     
+      </div>
+      
+      <a routerLink="/agregar" > Calificar </a>
+</div>

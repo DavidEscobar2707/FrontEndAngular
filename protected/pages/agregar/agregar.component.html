@@ -1,0 +1,88 @@
+
+
+<app-navbar></app-navbar>
+<form class="login100-form"
+      autocomplete="off"
+      [formGroup]="formulario" 
+      (ngSubmit)="crear()"
+      class="p-5">
+                
+    <span class="login100-form-title p-b-49">
+        Ingresa un inmueble
+    </span>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Nombre de inmueble</span>
+        <input class="input100"
+               type="text" 
+               formControlName="nombre"
+               placeholder="Crea un nombre para tu inmueble">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Teléfono</span>
+        <input class="input100"
+               type="number" 
+               formControlName= "telefono"
+               placeholder="Ingrese un teléfono de contacto">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Direccion</span>
+        <input class="input100"
+               type="text" 
+               formControlName= "direccion"
+               placeholder="Ingrese la dirección de la casa">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Pais</span>
+        <input class="input100"
+               type="text" 
+               formControlName= "pais"
+               placeholder="Ingrese su pais de residencia">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Ciudad</span>
+        <input class="input100"
+               type="text" 
+               formControlName= "ciudad"
+               placeholder="Ingrese su ciudad de residencia">
+        <span class="focus-input100"></span>
+    </div>
+
+    
+
+    <div class="wrap-input100" >
+        <span class="label-input100"> Seleccione una categoría </span>
+        <select type ="text" 
+                class="input100" 
+                formControlName= "categoria"
+                placeholder="Seleccione una categoria" >
+                <option value="61a981c5f0e1822422693aa2">CASA DE PLAYA</option>
+                <option value="61afe93af2cd14be8fa88f65">APARTAMENTOS</option>
+                <option value="61b401b02b89be460dc3d692">HOTELES</option>
+        </select>
+        <span class="focus-input100"></span>
+    </div>
+
+
+
+    
+    <div class="text-right p-t-8 p-b-31"></div>
+    
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn" >
+            <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn"
+                        type="submit()">
+                    Enviar
+                </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+.container {
+    right: auto;
+    width: 10%;
+    padding-right: 1rem;
+}
+.boto:hover {
+    background-color: violet;
+    color: rebeccapurple;
+}

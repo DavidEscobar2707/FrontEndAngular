@@ -1,0 +1,36 @@
+
+    <div class="panel-body">        
+        <strong>Selecciona una imagen</strong>
+        <div *ngIf="estatus.status==='progress'">
+          <div class="progress">
+            <div style.width.%="estatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                {{ estatus.request }} {{ estatus.percent }} 
+              </div>
+          </div>
+        </div> <hr>
+
+    <form enctype="multipart/form-data">
+        <fieldset>
+            <div class="form-group">
+                
+                <input type="file" (change)="crearImagen($any($event).target.files)" name="archivo" >
+
+            </div>
+        </fieldset>
+
+    </form>
+
+    
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn"
+                    type="submit"
+                    routerLink="/dashboard">
+                terminar
+            </button>
+        </div>
+    </div>
+
+
+
