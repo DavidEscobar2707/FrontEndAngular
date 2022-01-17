@@ -10,6 +10,7 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImagenComponent } from './pages/imagen/imagen.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { ReservaComponent } from './pages/reserva/reserva.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     BuscarComponent,
     AgregarComponent,
     ImagenComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    ReservaComponent
   ],
   imports: [
     CommonModule,

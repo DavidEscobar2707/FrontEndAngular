@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, of, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 import { Usuario, AuthResponse } from '../interfaces/usuario.interface';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Usuario, AuthResponse } from '../interfaces/usuario.interface';
 export class AuthService {
   private baseUrl : string = environment.baseUrl
   private _usuario!: Usuario;
+  private _token !: string
 
   get usuario() {
     return{...this._usuario}
@@ -31,8 +33,10 @@ export class AuthService {
     return this.http.post<AuthResponse>(url,body)
        .pipe(
          tap(resp => {
+            this._token = resp.token
            if (resp.usuario.estado = true) {
-            localStorage.setItem('token',JSON.stringify(resp.token))
+            
+            localStorage.setItem('token',JSON.stringify(this._token))
             this._usuario = {
               nombre: resp.usuario.nombre!,
               nombreCompleto: resp.usuario.nombreCompleto!,
@@ -43,6 +47,7 @@ export class AuthService {
               rol: resp.usuario.rol!,
               uid: resp.usuario.uid!
              }
+             
            }
          }),
          map(valid => valid.usuario.estado = true),
@@ -69,6 +74,10 @@ export class AuthService {
               imagen: resp.usuario.imagen!,
               uid: resp.usuario.uid!
             }
+            localStorage.setItem('id', this.usuario.uid)
+            localStorage.setItem('nombre', this._usuario.nombre!)
+            localStorage.setItem('ciudad',this._usuario.ciudad)
+            localStorage.setItem('pais',this._usuario.pais)
           }
         }),
         map(valid => valid.usuario.estado = true),

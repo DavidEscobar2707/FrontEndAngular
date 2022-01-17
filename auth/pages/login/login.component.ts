@@ -24,7 +24,6 @@ export class LoginComponent  {
               private authService: AuthService) { }
 
   login() {
-    console.log(this.formulario.value)
     
     const {correo, password} = this.formulario.value
 
@@ -41,5 +40,7 @@ export class LoginComponent  {
         }
       })
   }
-
+  ngOnInit(): void {
+    localStorage.clear()
+  }
 }

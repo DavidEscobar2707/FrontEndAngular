@@ -19,29 +19,24 @@ import jwt_decode from 'jwt-decode';
 export class DashboardComponent implements OnInit {
   
   productos: Producto[] = []
-
-  get usuario () {
-    return this.authService.usuario;
-  }
-
-  get token() {
-    return localStorage.getItem('token') 
-  }
+  id : string | null = ''
 
   
-
   constructor(private authService: AuthService,
               private productoService: ProductoService) { }
 
 
   ngOnInit(): void {
+    this.id = localStorage.getItem('id')
     
     this.productoService.getProducto()
       .subscribe(resp => {
         this.productos = resp['productos']
-        console.log(this.productos)
+ 
       })
   }
+
+  
     
 
 

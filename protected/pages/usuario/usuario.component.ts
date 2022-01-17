@@ -8,14 +8,20 @@ import { AuthService } from '../../../auth/services/auth.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  
-  
+  id: string | null = ''
 
-  constructor(
-              private authService: AuthService) { }
+
+  get usuario () {
+    return this.authService.usuario;
+  }
+
+  constructor(private authService: AuthService) {
+    
+               }
 
   ngOnInit(): void {
-
+     this.id = localStorage.getItem('id')
+     
   }
 
 }

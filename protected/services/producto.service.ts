@@ -36,7 +36,6 @@ export class ProductoService {
     const body = {nombre, telefono, direccion, pais,  ciudad,  categoria}
     const headers = new HttpHeaders()
       .set('x-token', localStorage.getItem('token') || '')
-  
   return this.http.post<Producto>(url,body,{headers})
   .pipe(
     tap(resp => {
