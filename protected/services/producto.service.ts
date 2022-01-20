@@ -17,7 +17,6 @@ export class ProductoService {
 
   constructor( private http: HttpClient) { }
 
-
   getProducto():Observable<ProductoResponse> {
     return this.http.get<ProductoResponse>(`${this.baseUrl}/productos`)
   }

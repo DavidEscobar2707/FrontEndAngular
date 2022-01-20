@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { ReservaResponse } from '../interfaces/reserva.interface';
 
@@ -16,6 +16,10 @@ export class ReservasService {
   }
   
   constructor( private http: HttpClient) { }
+
+  getReserva():Observable<ReservaResponse[]> {
+    return this.http.get<ReservaResponse[]>(`${this.baseUrl}/registros`)
+  }
 
   crearReserva(
     usuario: string | null,

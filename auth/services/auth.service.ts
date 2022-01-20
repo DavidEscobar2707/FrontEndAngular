@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 import { Usuario, AuthResponse } from '../interfaces/usuario.interface';
 import jwt_decode from 'jwt-decode';
@@ -19,6 +19,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  getUsuarioPorId(id: string | null):Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.baseUrl}/usuarios/${ id }`)
+  } 
+  
   registro (
     nombre: string, 
     nombreCompleto: string, 
@@ -71,7 +75,7 @@ export class AuthService {
               ciudad: resp.usuario.ciudad!,
               correo: resp.usuario.correo!,
               rol: resp.usuario.rol!,
-              imagen: resp.usuario.imagen!,
+              img: resp.usuario.img!,
               uid: resp.usuario.uid!
             }
             localStorage.setItem('id', this.usuario.uid)

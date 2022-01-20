@@ -19,7 +19,7 @@ export interface Usuario {
     rol:            string;
     estado?:         boolean;
     password?:      string;
-    imagen?:         string;
+    img?:         string;
     uid:            string;
 }
 

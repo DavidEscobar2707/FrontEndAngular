@@ -37,7 +37,7 @@ export class AgregarComponent  {
             text: 'El correo y/o nombre de usuario ya existen'
           })
         } else {
-          this.router.navigateByUrl('/dashboard')
+          this.router.navigateByUrl('dashboard/reserva')
           console.log(this.productos)
         }
       })

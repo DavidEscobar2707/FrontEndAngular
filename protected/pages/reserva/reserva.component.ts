@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../../services/producto.service';
-import { Producto } from '../../interfaces/producto.interface';
+import {  Producto, ProductoResponse } from '../../interfaces/producto.interface';
 
 @Component({
   selector: 'app-reserva',
@@ -18,6 +18,7 @@ export class ReservaComponent implements OnInit {
   usuario !: string | null
   disponible !: boolean
   router: any;
+  id!: string | undefined
   constructor( private reservasService: ReservasService,
                private productoService: ProductoService,
                private activatedRoute: ActivatedRoute) { }
@@ -26,7 +27,12 @@ export class ReservaComponent implements OnInit {
       this.productoService.getProducto()
       .subscribe(resp => {
         this.productos = resp['productos']
+        this.id = this.productos.pop()?._id
       })
+
+      
+
+
     }
   
 }

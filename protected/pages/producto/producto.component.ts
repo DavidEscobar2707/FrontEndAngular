@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../interfaces/producto.interface';
 import { ReservasService } from '../../services/reservas.service';
+import { ReservaResponse } from '../../interfaces/reserva.interface';
 
 @Component({
   selector: 'app-producto',
@@ -13,10 +14,11 @@ import { ReservasService } from '../../services/reservas.service';
 export class ProductoComponent implements OnInit {
   productos: Producto[] = []
   producto!: Producto
+  reservas: ReservaResponse[] = []
  
   id : string | null = ''
   usuario !: string | null
-  disponible !: boolean
+  disponible : boolean = true
   fechaFinal !: number
   fechaInicial !: number
   productoId !: string
@@ -33,6 +35,15 @@ export class ProductoComponent implements OnInit {
       )
       .subscribe( producto => this.producto = producto)
     
+      this.reservasService.getReserva()
+      .subscribe(resp => {
+        this.reservas = resp
+        console.log(this.reservas)
+      })
+
+  }
+  
+    crear(){
       this.usuario = localStorage.getItem('id')
       this.disponible = false
       this.activatedRoute.params
@@ -42,14 +53,7 @@ export class ProductoComponent implements OnInit {
         .subscribe(resp => { 
           console.log(resp)
         })
-    
-    
     }
-    
-    
-    crear(){
-      
-  }
   
 
 }

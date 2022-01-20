@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit {
     this.productoService.getProducto()
       .subscribe(resp => {
         this.productos = resp['productos']
- 
       })
   }
 
