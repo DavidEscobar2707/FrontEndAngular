@@ -29,10 +29,6 @@ export class ReservaComponent implements OnInit {
         this.productos = resp['productos']
         this.id = this.productos.pop()?._id
       })
-
-      
-
-
     }
   
 }

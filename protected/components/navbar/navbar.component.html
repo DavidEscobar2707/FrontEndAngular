@@ -8,8 +8,13 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0"></ul>
         
       <form class="d-flex p-1">
-          <input class="form-control mr-2 p-1" type="search" placeholder="Buscar Inmueble" aria-label="Search">
-          <button class="btn btn-success ms-auto " type="submit">Search</button>
+          <input #txtBuscar 
+          (keyup.enter)="buscar(txtBuscar.value)"
+          class="form-control mr-2 p-1" type="search" placeholder="Buscar Inmueble" aria-label="Search">
+          <button 
+            class="btn btn-success ms-auto " 
+            type="submit"
+            (click)="buscar(txtBuscar.value)">Search</button>
         </form>
       </div>
       <button class="btn btn-danger ms-auto text-dark " (click)="logout()" type="submit">Logout</button>

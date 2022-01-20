@@ -19,9 +19,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  getUsuarioPorId(id: string | null):Observable<Usuario> {
-    return this.http.get<Usuario>(`${this.baseUrl}/usuarios/${ id }`)
-  } 
+  
   
   registro (
     nombre: string, 

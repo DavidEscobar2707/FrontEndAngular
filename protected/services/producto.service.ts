@@ -65,4 +65,9 @@ export class ProductoService {
       observe: 'events'
     })
   }
+
+  buscarProductos(texto: string):Observable<Producto[]>{
+    return this.http.get<Producto[]>(`${this.baseUrl}/buscar/productos/${texto}`)
+  }
+
 }

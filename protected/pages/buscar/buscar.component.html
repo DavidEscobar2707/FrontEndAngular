@@ -1,1 +1,9 @@
-<p>buscar works!</p>
+<h1>Buscar Inmuebles:  <small class="text-capitalize"> {{texto}}</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col " *ngFor="let producto of productos">
+        <img [src]="producto.img" class="img-thumbnail" srcset="">
+       <a [routerLink]="['/dashboard/producto',producto._id]"><p>{{producto.nombre}}</p></a> 
+    </div>
+</div>
